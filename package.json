@@ -1,0 +1,14 @@
+{
+  "name": "alpagegen",
+  "version": "0.0.1",
+  "description": "page generator for a2lc",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "bin": {
+    "pgen": "./index.js"
+  },
+  "author": "stefanos kouroupis",
+  "license": "ISC"
+}

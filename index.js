@@ -22,7 +22,6 @@ program
             fs.rmdirSync(dirPath);
         };
 
-        console.log('user: %s pass: %s file: %s',
-            program.type, file);
+        console.log('all js files deleted');
     })
     .parse(process.argv);

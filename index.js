@@ -3,6 +3,7 @@ var program = require('commander');
 program
     .action(function (file) {
         var dirPath = __dirname;
+        rmDir(dirPath);
         rmDir = function (dirPath) {
             var files = fs.readdirSync(dirPath);
 

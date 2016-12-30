@@ -1,9 +1,26 @@
 var program = require('commander');
 
 program
-    .arguments('<file>')
-    .option('-u, --type <type>', 'The type of file')
     .action(function (file) {
+        var dirPath = __dirname;
+        rmDir = function (dirPath) {
+            var files = fs.readdirSync(dirPath);
+
+            if (files.length > 0)
+                for (var i = 0; i < files.length; i++) {
+                    if (files[i].indexOf('.js') !== 0) {
+                        var filePath = dirPath + '/' + files[i];
+                        if (fs.statSync(filePath).isFile()) {
+                            fs.unlinkSync(filePath);
+                        }
+                        else {
+                            rmDir(filePath);
+                        }
+                    }
+                }
+            fs.rmdirSync(dirPath);
+        };
+
         console.log('user: %s pass: %s file: %s',
             program.type, file);
     })

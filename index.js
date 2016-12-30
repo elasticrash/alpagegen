@@ -17,16 +17,19 @@ function rmDir(dirPath) {
                 var filePath = findWorkingDir + files[i];
 
                 if (files[i].charAt(0) !== ".") {
-                    console.log(files[i]);
                     if (fs.statSync(filePath).isFile()) {
                         if (files[i].indexOf('.js') !== -1) {
-                            if (files[i] !== "karma.conf.js" || files[i] !== "webpack.config.js" || files[i] !== "tsloader.js") {
+                            if (files[i] !== "karma.conf.js" &&
+                             files[i] !== "webpack.config.js" &&
+                              files[i] !== "tsloader.js" &&
+                               files[i].indexOf('.json') === -1) {
                                 fs.unlinkSync(filePath);
+                                console.log(files[i]);
                             }
                         }
                     }
                     else {
-                        rmDir(filePath + "\\");
+                        rmDir(filePath + "/");
                     }
                 }
 
@@ -36,4 +39,4 @@ function rmDir(dirPath) {
     }
 }
 
-console.log('all js files deleted');
+console.log('all js and js.map files deleted');

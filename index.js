@@ -22,7 +22,8 @@ function rmDir(dirPath) {
                             if (files[i] !== "karma.conf.js" &&
                              files[i] !== "webpack.config.js" &&
                               files[i] !== "tsloader.js" &&
-                               files[i].indexOf('.json') === -1) {
+                               files[i].indexOf('.json') === -1 
+                               && files[i].indexOf('.js.map') === -1) {
                                 fs.unlinkSync(filePath);
                                 console.log(files[i]);
                             }
@@ -39,4 +40,4 @@ function rmDir(dirPath) {
     }
 }
 
-console.log('all js and js.map files deleted');
+console.log('all js files deleted');

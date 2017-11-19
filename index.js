@@ -24,7 +24,7 @@ function rmDir(dirPath) {
 
                 var filePath = findWorkingDir + files[i];
 
-                if (filePath.indexOf('test') === -1 && filePath.indexOf('src') > 0) {
+                if (filePath.indexOf('test') === -1) {
                     if (files[i].charAt(0) !== ".") {
                         if (fs.statSync(filePath).isFile()) {
                             if (files[i].indexOf('.js') !== -1) {
